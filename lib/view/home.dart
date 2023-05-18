@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:my_project/ProfileScreen.dart';
 import 'package:my_project/models/field.api.dart';
 import 'package:my_project/models/field.dart';
 import 'package:my_project/screens/details_screen.dart';
@@ -122,19 +123,25 @@ class _HomePageState extends State<HomePage> {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Setting",
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
+              child: GestureDetector(
+                      onTap: () {
+                        // Code to execute when the widget is tapped
+                        Get.off(ProfileScreen());
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.supervisor_account_outlined,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "User",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_project/ProfileScreen.dart';
 import 'package:my_project/models/reservation.api.dart';
 import 'package:my_project/models/reservation.dart';
 
@@ -41,7 +42,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
          appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Field List",
+          "Your Reservations",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: GlobalColors.mainColor,
@@ -78,7 +79,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(
-                            Icons.book,
+                            Icons.home,
                             color: Colors.white,
                           ),
                           Text(
@@ -132,19 +133,25 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Setting",
-                    style: TextStyle(color: Colors.white),
-                  )
-                ],
-              ),
+              child: GestureDetector(
+                      onTap: () {
+                        // Code to execute when the widget is tapped
+                        Get.off(ProfileScreen());
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.supervisor_account_outlined,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "User",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
             ),
           ],
         ),
